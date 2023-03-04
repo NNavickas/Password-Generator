@@ -91,9 +91,7 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   // Prompt user for desired password length
-  var passwordLength = parseInt(
-    prompt("Enter a number between 10 and 64 for the desired password length")
-  );
+  var passwordLength = parseInt(prompt("Enter a number between 10 and 64 for the desired password length"));
 
   // Validate user input
   if (isNaN(passwordLength) || passwordLength < 10 || passwordLength > 64) {
@@ -108,12 +106,7 @@ function getPasswordOptions() {
   var includeSpecial = confirm("Do you want to include special characters?");
 
   // Validate that at least one character type is selected
-  if (
-    !includeLowercase &&
-    !includeUppercase &&
-    !includeNumeric &&
-    !includeSpecial
-  ) {
+  if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
     alert("You must select at least one character type.");
     return null;
   }
@@ -124,7 +117,7 @@ function getPasswordOptions() {
     includeLowercase: includeLowercase,
     includeUppercase: includeUppercase,
     includeNumeric: includeNumeric,
-    includeSpecial: includeSpecial,
+    includeSpecial: includeSpecial
   };
 
   return passwordOptions;
@@ -145,28 +138,22 @@ function generatePassword() {
 
   // Add lowercase characters to possible characters array if user selected them
   if (passwordOptions.includeLowercase) {
-    possibleCharacters = possibleCharacters.concat(
-      "abcdefghijklmnopqrstuvwxyz".split("")
-    );
+    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
   }
 
   // Add uppercase characters to possible characters array if user selected them
   if (passwordOptions.includeUppercase) {
-    possibleCharacters = possibleCharacters.concat(
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
-    );
+    possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
   }
 
   // Add numeric characters to possible characters array if user selected them
   if (passwordOptions.includeNumeric) {
-    possibleCharacters = possibleCharacters.concat("0123456789".split(""));
+    possibleCharacters = possibleCharacters.concat(numericCharacters);
   }
 
   // Add special characters to possible characters array if user selected them
   if (passwordOptions.includeSpecial) {
-    possibleCharacters = possibleCharacters.concat(
-      "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".split("")
-    );
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
   }
 
   // Create a variable to store the password
@@ -174,8 +161,7 @@ function generatePassword() {
 
   // Generate random password by selecting random characters from the possible characters array
   for (var i = 0; i < passwordOptions.passwordLength; i++) {
-    password +=
-      possibleCharacters[Math.floor(Math.random() * possibleCharacters.length)];
+    password += possibleCharacters[Math.floor(Math.random() * possibleCharacters.length)];
   }
 
   // Return the generated password
