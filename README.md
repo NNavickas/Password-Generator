@@ -7,6 +7,8 @@ A password generator app to create a user password which meets the criteria sele
 
 The output is then displayed on-screen.
 
+![Screenshot of expected output](./assets/screenshot.PNG)
+
 ## Table of Contents: 
 - [Installation](#installation)
 - [Usage](#usage)
