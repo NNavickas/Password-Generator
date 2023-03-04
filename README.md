@@ -2,7 +2,7 @@
 
 ## Description 
 A password generator app to create a user password which meets the following password criteria:
-1. length 8-128 characters
+1. length 10-64 characters
 2. Lowecase, Uppercase, Numeric and special character options
 
 ## Table of Contents: 
